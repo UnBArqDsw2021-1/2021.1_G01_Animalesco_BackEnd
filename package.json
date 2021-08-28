@@ -1,0 +1,26 @@
+{
+  "name": "2021.1_G01_Animalesco_BackEnd",
+  "version": "1.0.0",
+  "description": "Repositório de BackEnd do grupo Animalesco da disciplina de Desenho de Software",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnBArqDsw2021-1/2021.1_G01_Animalesco_BackEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnBArqDsw2021-1/2021.1_G01_Animalesco_BackEnd/issues"
+  },
+  "homepage": "https://github.com/UnBArqDsw2021-1/2021.1_G01_Animalesco_BackEnd#readme",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
