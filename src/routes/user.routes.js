@@ -1,7 +1,7 @@
-module.exports = app => {
-
+module.exports = (app, db) => {
     const express = require('express');
-    const user_controller = require('../controllers/user.controllers');
+
+    const user_controller = require('../controllers/user.controllers')(app, db);
 
     const router = express.Router();
 

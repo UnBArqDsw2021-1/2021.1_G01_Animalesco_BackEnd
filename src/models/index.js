@@ -1,18 +1,30 @@
-const Sequelize = require('sequelize');
+module.exports = (app) => {
 
-const db_config = require('../config/db.config');
+    const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(db_config.DB, db_config.USER, db_config.PASSWORD, {
-    host: db_config.HOST,
-    dialect: db_config.dialect,
-    operatorsAliases: false,
-});
+    const sequelize = new Sequelize(
+        process.env.POSTGRES_DB,
+        process.env.POSTGRES_USER,
+        process.env.POSTGRES_PASSWORD,
+        {
+            host: process.env.POSTGRES_HOST,
+            dialect: 'postgres',
+            operatorsAliases: false,
+        }
+    );
 
-const db = {};
+    const db = {};
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
+    db.Sequelize = Sequelize;
+    db.sequelize = sequelize;
 
-db.User = require('./user.model')(sequelize, Sequelize);
+    // Injeção de dependências
+    db.User = require('./user.model')(sequelize, Sequelize);
+    // Other models here
 
-module.exports = db;
+    db.sequelize.sync({ force: true }).then(() => {
+        console.log("Drop and re-sync db");
+    });
+
+    return db;
+};
