@@ -14,26 +14,48 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-# from django.contrib.auth.models import User
+from django.urls import path, include, re_path
+from rest_framework.response import Response
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions
 
-# from rest_framework import fields, routers, serializers, viewsets
 
-# class UserSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['urls', 'username', 'email', 'password']
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
-# class UserViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Djoser API",
+        default_version="v1",
+        description="REST implementation of Django authentication system. djoser library provides a set of Django Rest Framework views to handle basic actions such as registration, login, logout, password reset and account activation. It works with custom user model.",
+        contact=openapi.Contact(email="contact@snippets.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
-# router = routers.DefaultRouter()
-# router.register('users', UserViewSet)
+@api_view()
+@permission_classes([permissions.AllowAny])
+def healthcheck(request):
+    """Endpoint para verificar a saúde do server"""
+    return Response({"msg": "OK"})
 
 urlpatterns = [
+    path("", healthcheck),
     path('admin/', admin.site.urls),
-    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api/v1/', include("users.urls")),
-    # path('api/v1/', include(router.urls)),
+
+    re_path(
+        r"^api/v1/docs/swagger/$",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+
+    re_path(
+        r'^api/v1/docs/redoc/$',
+        schema_view.with_ui('redoc', cache_timeout=0),
+        name='schema-redoc'
+    ),
+
+    path('api/v1/', include('authentication.urls')),
 ]
