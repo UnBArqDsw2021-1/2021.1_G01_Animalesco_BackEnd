@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
     # our apps
     'authentication',
+    'animals',
 ]
 
 # request -> [ midd1 > midd2 > ... > middn ] -> view (controller)

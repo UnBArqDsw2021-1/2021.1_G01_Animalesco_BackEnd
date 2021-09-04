@@ -5,17 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Django",
+            "name": "Debugging Django",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/src/manage.py",
             "args": [
                 "runserver",
-                "0.0.0.0:8000"
+                "0.0.0.0:8002",
             ],
-            "env": {
-                "POSTGRES_HOST": "0.0.0.0"
-            },
             "django": true
         }
     ]

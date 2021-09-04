@@ -58,4 +58,5 @@ urlpatterns = [
     ),
 
     path('api/v1/', include('authentication.urls')),
+    path('api/v1/', include('animals.urls')),
 ]
