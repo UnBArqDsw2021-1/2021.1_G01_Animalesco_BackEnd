@@ -17,17 +17,36 @@ class BreedSerializer(serializers.ModelSerializer):
 
 
 class PetSerializer(serializers.ModelSerializer):
+
+    breed_name = serializers.SerializerMethodField(method_name="get_breed_name")
+
+    def get_breed_name(self, obj):
+        """Helper function to return breed name instead of id"""
+        return obj.breed.name
+
+    specie_name = serializers.SerializerMethodField(method_name="get_specie_name")
+
+    def get_specie_name(self, obj):
+        """Helper function to return specie name"""
+        return obj.breed.specie.name
+
     class Meta:
         model = Pet
         fields = [
             'id',
             'name',
             'sex',
-            'breed',
+            'breed',       # write only
             'birth_date',
             'is_neutered',
             'color',
+            'breed_name',  # read only
+            'specie_name', # read only
         ]
+        read_only_fields = ( 'breed_name', 'specie_name', )
+        extra_kwargs = {
+            "breed": { 'write_only': True },
+        }
 
         # extra_kwargs é um atributo das ModelSerializers para sobrescrever as mensagens
         # padrões do django rest framework.
