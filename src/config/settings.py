@@ -89,6 +89,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# AUTH_USER_MODEL = 'authentication.User'
 
 # Database settings
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -212,3 +213,11 @@ SIMPLE_JWT = {
 # CORS HEADERS
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+SWAGGER_SETTINGS = {
+    "DEFAULT_AUTO_SCHEMA_CLASS":"config.swagger_schema.CustomAutoSchema",
+}
+
+DJOSER = {
+    'USER_CREATE_PASSWORD_RETYPE': True,
+}

@@ -25,10 +25,10 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Djoser API",
+        title="Animalesco API",
         default_version="v1",
-        description="REST implementation of Django authentication system. djoser library provides a set of Django Rest Framework views to handle basic actions such as registration, login, logout, password reset and account activation. It works with custom user model.",
-        contact=openapi.Contact(email="contact@snippets.local"),
+        description="API REST para a app mobile Animalesco.",
+        contact=openapi.Contact(email="animalesco.backend@animalesco.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,

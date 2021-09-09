@@ -3,6 +3,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
 
 from .models import Pet, Specie, Breed
 
@@ -16,6 +17,7 @@ from .serializers import (
 class SpecieViewSet(viewsets.ModelViewSet):
     queryset = Specie.objects.all()
     serializer_class = SpecieSerializer
+    doc_tags = ["Species"]
 
     # Nossa API permite que os usuários registre suas próprias espécies caso elas não
     # estejam cadastradas, porém essas novas espécies não são mostradas para os demais
@@ -27,6 +29,7 @@ class SpecieViewSet(viewsets.ModelViewSet):
 class BreedViewSet(viewsets.ModelViewSet):
     queryset = Breed.objects.all()
     serializer_class = BreedSerializer
+    doc_tags = ["Breeds"]
 
     # Como breed é uma controller nested (depende de uma specie), temos que sobrescrever
     # o get_queryset, pois assim determinado o contexto de acordo com a pk passada no
@@ -51,6 +54,7 @@ class BreedViewSet(viewsets.ModelViewSet):
 class PetViewSet(viewsets.ModelViewSet):
     queryset = Pet.objects.all()
     serializer_class = PetSerializer
+    doc_tags = ["Pets"]
 
     def get_queryset(self):
         queryset = Pet.objects.filter(owner=self.request.user)
@@ -60,7 +64,12 @@ class PetViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
 
-@api_view(['GET'])
+@swagger_auto_schema(
+    tags=["Helpers"],
+    method="get",
+    operation_summary="Rota usada para consultar todas as Espécies e Raças cadastradas na backend",
+)
+@api_view(['GET',])
 def get_all_specie_breeds(request):
     """
     Controller que irá retornar todas as espécies e raças que o frontend irá
