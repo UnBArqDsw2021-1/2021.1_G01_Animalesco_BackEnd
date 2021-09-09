@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
     # our apps
     'authentication',
+    'animals',
 ]
 
 # request -> [ midd1 > midd2 > ... > middn ] -> view (controller)
@@ -88,6 +89,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+AUTH_USER_MODEL = 'authentication.User'
 
 # Database settings
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -174,7 +176,7 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", '')
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "False").lower() in ["1", "true"]
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=180),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 
     'ROTATE_REFRESH_TOKENS': True,
@@ -211,3 +213,11 @@ SIMPLE_JWT = {
 # CORS HEADERS
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+SWAGGER_SETTINGS = {
+    "DEFAULT_AUTO_SCHEMA_CLASS":"config.swagger_schema.CustomAutoSchema",
+}
+
+DJOSER = {
+    'USER_CREATE_PASSWORD_RETYPE': True,
+}

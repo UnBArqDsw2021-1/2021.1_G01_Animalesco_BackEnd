@@ -5,3 +5,4 @@ djoser==2.1.*
 djangorestframework_simplejwt==4.8.*
 django-cors-headers==3.8.*
 drf-yasg==1.20.*
+drf-nested-routers==0.93.*
