@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "063dab59-6b68-4641-89b0-158138107222",
+		"_postman_id": "6610e057-75ab-4579-a2e3-59121d4f895f",
 		"name": "Animalesco",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"durval\",\n    \"email\": \"durval@gmail.com\",\n    \"password\": \"UnbFGA123\",\n    \"re_password\": \"UnbFGA123\"\n}",
+					"raw": "{\n    \"username\": \"fred\",\n    \"email\": \"fred@gmail.com\",\n    \"password\": \"UnbFGA123\",\n    \"re_password\": \"UnbFGA123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,6 +40,41 @@
 			"response": []
 		},
 		{
+			"name": "JWT Create Access Tokens",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"jojo\",\n    \"password\": \"UnbFGA123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/jwt/create/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jwt",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get User information",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -50,7 +85,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNjc2MTczLCJqdGkiOiJiZGI1MDE4OGE3MDQ0NjAyOGFlMTIwMTY1OWMxZTAyOSIsInVzZXJfaWQiOjF9.C09RhPEFJAHXL7m3bx3gywG2m8XLMqmxKxiRcHYTqBs",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNzE1NzEzLCJqdGkiOiIyZDAyMzYxZTc1YzI0NTM2YWI0MWJjYmNhYzAyMDEyMiIsInVzZXJfaWQiOjZ9.5ctKGYLOHOU_4dp1qM7INYglQlfmv2T6XT1h5kZj2Tk",
 							"type": "string"
 						}
 					]
@@ -87,6 +122,131 @@
 						"v1",
 						"users",
 						"me",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Change Username",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNzE1NzEzLCJqdGkiOiIyZDAyMzYxZTc1YzI0NTM2YWI0MWJjYmNhYzAyMDEyMiIsInVzZXJfaWQiOjZ9.5ctKGYLOHOU_4dp1qM7INYglQlfmv2T6XT1h5kZj2Tk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"new_username\": \"eemerson\",\n    \"re_new_username\": \"eemerson\",\n    \"current_password\": \"UnbFGA123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/users/set_username/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"set_username",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Change Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNzE1ODI4LCJqdGkiOiI4YjBmNTU5NDBjZTY0YTQ0OGE3NDdjNzRkZWIxNGJjZiIsInVzZXJfaWQiOjZ9.Q4ljEsMBJkzwqIWDvbMO5rrcpn3PKVpxac5XghVp7BI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"new_password\": \"UNBFGA123\",\n    \"re_new_password\": \"UNBFGA123\",\n    \"current_password\": \"UnbFGA123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/users/set_password/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"set_password",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT Refresh Access Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzMDc5ODYyOCwianRpIjoiMjIzNTMxZTdiMTdkNDhkYWI4YjYyM2E5Yjk4ZGFlMzYiLCJ1c2VyX2lkIjo2fQ.0HZf6nfnhX7pvE8cv-rqY33wvXGPv4DES7aKWDrob88\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/jwt/refresh/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jwt",
+						"refresh",
 						""
 					]
 				}
@@ -139,14 +299,61 @@
 			"response": []
 		},
 		{
-			"name": "User Change Username",
+			"name": "Get all Species",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNzE0NDc2LCJqdGkiOiI4YmQ3MjcyZjBhZTM0ZWE3YTAxMjhkNmE0MzEzNTM2YiIsInVzZXJfaWQiOjV9.WEbZKvwMjTPeXAYQwN4IjZTYsh_riyZyCDMkIYNIbdM",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTYzMTA2LCJqdGkiOiIyN2E0OTkzODc3ZDc0M2U4YmY5OTFmNTAzYmMwMWQ0YSIsInVzZXJfaWQiOjd9.Hwsvcp0q9inAmKLleFzDW7s6XH1kOLDTKcfDYFMySzA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/species/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"species",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Specie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTU5NDUxLCJqdGkiOiJhZWYwMTA1ZTUxNGI0MWJlYmRhNTk3N2IxMDRlZjAwNiIsInVzZXJfaWQiOjJ9.t8K4MUHvRv12hh4Yg2UWn7MMPHpJ3LdTEtxMA5iIG_8",
 							"type": "string"
 						}
 					]
@@ -155,7 +362,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"new_username\": \"dudurval\",\n    \"re_new_username\": \"dudurval\",\n    \"current_password\": \"UnbFGA123\"\n}",
+					"raw": "{\n    \"name\": \"Gato\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -163,7 +370,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://0.0.0.0:8000/api/v1/users/set_username/",
+					"raw": "http://0.0.0.0:8000/api/v1/species/",
 					"protocol": "http",
 					"host": [
 						"0",
@@ -175,8 +382,7 @@
 					"path": [
 						"api",
 						"v1",
-						"users",
-						"set_username",
+						"species",
 						""
 					]
 				}
@@ -184,14 +390,59 @@
 			"response": []
 		},
 		{
-			"name": "User Change Password",
+			"name": "Update Specie",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNzE0NDc2LCJqdGkiOiI4YmQ3MjcyZjBhZTM0ZWE3YTAxMjhkNmE0MzEzNTM2YiIsInVzZXJfaWQiOjV9.WEbZKvwMjTPeXAYQwN4IjZTYsh_riyZyCDMkIYNIbdM",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTU5NDUxLCJqdGkiOiJhZWYwMTA1ZTUxNGI0MWJlYmRhNTk3N2IxMDRlZjAwNiIsInVzZXJfaWQiOjJ9.t8K4MUHvRv12hh4Yg2UWn7MMPHpJ3LdTEtxMA5iIG_8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Felinos\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/species/2/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"species",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Breed",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTEyNzk5LCJqdGkiOiI0MTljYTQzNTQxMmE0OWU3ODQ1ODUyYzQyMDM3MDAzYSIsInVzZXJfaWQiOjF9.j2Km4uUuk7J0wkjewNlalGf9kk0ybYCgdBU2Mc7fuOU",
 							"type": "string"
 						}
 					]
@@ -200,7 +451,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"new_password\": \"UNBFGA123\",\n    \"re_new_password\": \"UNBFGA123\",\n    \"current_password\": \"UnbFGA123\"\n}",
+					"raw": "{\n    \"name\": \"Vira Lata\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -208,7 +459,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://0.0.0.0:8000/api/v1/users/set_password/",
+					"raw": "http://0.0.0.0:8000/api/v1/species/3/breeds/",
 					"protocol": "http",
 					"host": [
 						"0",
@@ -220,8 +471,9 @@
 					"path": [
 						"api",
 						"v1",
-						"users",
-						"set_password",
+						"species",
+						"3",
+						"breeds",
 						""
 					]
 				}
@@ -229,13 +481,26 @@
 			"response": []
 		},
 		{
-			"name": "JWT Create Access Tokens",
+			"name": "Get all Breeds (from specie)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTYzMTA2LCJqdGkiOiIyN2E0OTkzODc3ZDc0M2U4YmY5OTFmNTAzYmMwMWQ0YSIsInVzZXJfaWQiOjd9.Hwsvcp0q9inAmKLleFzDW7s6XH1kOLDTKcfDYFMySzA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"durval\",\n    \"password\": \"UnbFGA123\"\n}",
+					"raw": "{\n    \"name\": \"Vira Lata\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -243,7 +508,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://0.0.0.0:8000/api/v1/jwt/create/",
+					"raw": "http://0.0.0.0:8000/api/v1/species/3/breeds/",
 					"protocol": "http",
 					"host": [
 						"0",
@@ -255,8 +520,9 @@
 					"path": [
 						"api",
 						"v1",
-						"jwt",
-						"create",
+						"species",
+						"3",
+						"breeds",
 						""
 					]
 				}
@@ -264,13 +530,23 @@
 			"response": []
 		},
 		{
-			"name": "JWT Refresh Access Token",
+			"name": "Update an Breeds",
 			"request": {
-				"method": "POST",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTU5NDUxLCJqdGkiOiJhZWYwMTA1ZTUxNGI0MWJlYmRhNTk3N2IxMDRlZjAwNiIsInVzZXJfaWQiOjJ9.t8K4MUHvRv12hh4Yg2UWn7MMPHpJ3LdTEtxMA5iIG_8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzMDc2MjI3MywianRpIjoiNmU0ZDRkOWYyMDNlNDZhZDk3MDYyYjAwZjU0MmQzM2UiLCJ1c2VyX2lkIjoxfQ.tW213rsDy643B8i-cqtanjgqed-vGnRL4ZN7_XWi3Zg\"\n}",
+					"raw": "{\n    \"name\": \"Bulldog\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -278,7 +554,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://0.0.0.0:8000/auth/jwt/refresh/",
+					"raw": "http://0.0.0.0:8000/api/v1/species/1/breeds/2/",
 					"protocol": "http",
 					"host": [
 						"0",
@@ -288,9 +564,12 @@
 					],
 					"port": "8000",
 					"path": [
-						"auth",
-						"jwt",
-						"refresh",
+						"api",
+						"v1",
+						"species",
+						"1",
+						"breeds",
+						"2",
 						""
 					]
 				}
@@ -298,13 +577,23 @@
 			"response": []
 		},
 		{
-			"name": "JWT Verify Access Tokens",
+			"name": "Create Pet",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTE2NzEyLCJqdGkiOiIwYWI2OTQ2MDZhZjY0OTViODAzMzIyMTBmODczNDM0OCIsInVzZXJfaWQiOjF9.DOxtk-ZlldaUs9gw_yvSDd3bLjR9Kdx_QHHWsNTFhRw",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwNjc2MDg4LCJqdGkiOiJhYTJlMTMzNjBhZDg0MGQ2YTc4MTFiYTRiODY1Y2YwYyIsInVzZXJfaWQiOjF9.ojPDfetxTQUC1aeu5lBQln63ZoScolArijzpQaAzqHw\"\n}",
+					"raw": "{\n    \"name\": \"Panda\",\n    \"sex\": \"M\",\n    \"breed\": \"4\",\n    \"birth_date\": \"2019-01-31\",\n    \"is_neutered\": false,\n    \"color\": \"Preto e Branco\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -312,7 +601,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://0.0.0.0:8000/auth/jwt/verify/",
+					"raw": "http://0.0.0.0:8000/api/v1/pets/",
 					"protocol": "http",
 					"host": [
 						"0",
@@ -322,9 +611,134 @@
 					],
 					"port": "8000",
 					"path": [
-						"auth",
-						"jwt",
-						"verify",
+						"api",
+						"v1",
+						"pets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Breeds / Species",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTUxMDE3LCJqdGkiOiJhNDE5MmRkZjJkMTk0NWQ3OTA3ZWJmZDRkNGQ3ZTgxNCIsInVzZXJfaWQiOjJ9.e7ndSA78NblEoDaHf3u5ztcvPnvLvTdvxOi_Bqiwls8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Panda\",\n    \"sex\": \"M\",\n    \"breed\": \"4\",\n    \"birth_date\": \"2019-01-31\",\n    \"is_neutered\": false,\n    \"color\": \"Preto e Branco\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/species-breeds/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"species-breeds",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.This field is required.\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/species/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"species",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all User Pets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMTYzMTA2LCJqdGkiOiIyN2E0OTkzODc3ZDc0M2U4YmY5OTFmNTAzYmMwMWQ0YSIsInVzZXJfaWQiOjd9.Hwsvcp0q9inAmKLleFzDW7s6XH1kOLDTKcfDYFMySzA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8002/api/v1/pets/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"pets",
 						""
 					]
 				}
