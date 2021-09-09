@@ -89,7 +89,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# AUTH_USER_MODEL = 'authentication.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 # Database settings
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
