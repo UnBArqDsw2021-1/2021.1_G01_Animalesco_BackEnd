@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
-
+from django.db.utils import IntegrityError
 
 
 from animals.models import Specie, Breed, Pet
@@ -55,7 +55,7 @@ class Command(BaseCommand):
         ]
 
         for data in specie_data:
-            Specie.objects.create(
+            Specie.objects.get_or_create(
                 name=data.get("fields").get("name"),
                 proven_veracity=data.get("fields").get("proven_veracity"),
             )
@@ -181,7 +181,7 @@ class Command(BaseCommand):
         ]
 
         for data in breed_data:
-            Breed.objects.create(
+            Breed.objects.get_or_create(
                 name=data.get("fields").get("name"),
                 proven_veracity=data.get("fields").get("proven_veracity"),
                 specie_id=data.get("fields").get("specie"),
@@ -269,14 +269,17 @@ class Command(BaseCommand):
 
         User = get_user_model()
 
-        User.objects.create_superuser(
-            username='admin',
-            email='admin@admin.com',
-            password='admin',
-        )
+        try:
+            User.objects.create_superuser(
+                username='admin',
+                email='admin@admin.com',
+                password='admin',
+            )
+        except IntegrityError as err:
+            pass
 
         for data in user_data:
-            user = User.objects.create(
+            user, created = User.objects.get_or_create(
                 username=data.get("fields").get("username"),
                 first_name=data.get("fields").get("first_name"),
                 last_name=data.get("fields").get("last_name"),
@@ -368,7 +371,7 @@ class Command(BaseCommand):
         ]
 
         for data in pets_data:
-            Pet.objects.create(
+            Pet.objects.get_or_create(
                 name=data.get("fields").get("name"),
                 sex=data.get("fields").get("sex"),
                 breed_id=data.get("fields").get("breed"),
