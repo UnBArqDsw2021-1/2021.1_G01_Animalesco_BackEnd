@@ -1,15 +1,17 @@
-from django.db import router
 from django.urls import include, path
-from rest_framework_nested import routers
 
 from vaccines.views import VaccineViewSet
+from animals.urls import pets_router
+
 
 app_name = 'vaccines'
 
-router = routers.DefaultRouter()
-
-router.register(r'vaccines', VaccineViewSet)
+pets_router.register(
+    r"vaccines",
+    VaccineViewSet,
+    basename='vaccines',
+)
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path("", include(pets_router.urls)),
 ]
