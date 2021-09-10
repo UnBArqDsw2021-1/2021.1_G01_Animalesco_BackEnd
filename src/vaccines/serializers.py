@@ -11,5 +11,5 @@ class VaccineSerializer(serializers.ModelSerializer):
             'application_date',
             'next_application_date',
             'is_finished',
-            'pet'
+            # 'pet'
         ]
