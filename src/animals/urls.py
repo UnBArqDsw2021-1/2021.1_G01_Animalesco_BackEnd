@@ -25,6 +25,13 @@ specie_router = routers.NestedDefaultRouter(
     lookup="specie",
 )
 
+# Aqui definimos o contexto dos pets para rotas relacionadas com pets específicos
+pets_router = routers.NestedDefaultRouter(
+    router,
+    r"pets",
+    lookup="pet",
+)
+
 # Aqui estamos colocando as rotas de breeds dentro do contexto de species
 specie_router.register(
     r"breeds",
