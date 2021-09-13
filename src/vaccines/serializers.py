@@ -1,6 +1,9 @@
 from rest_framework import serializers
+from rest_framework.generics import get_object_or_404
 
 from vaccines.models import Vaccine
+from animals.models import Pet
+
 
 class VaccineSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,4 +41,28 @@ class VaccineSerializer(serializers.ModelSerializer):
                 )
             })
 
+        if self.unique_together_validation(data) == False:
+            raise serializers.ValidationError({
+                "unique_together_validation": (
+                    "Duplicate vaccination detected! It is not allowed to register the "
+                    "same vaccine, in the same pet, on the same day, twice."
+                )
+            })
+
         return data
+
+    def unique_together_validation(self, data):
+        """
+        Função auxiliar para verificar se os dados passados no json são unique_together
+        """
+        view = self.context.get('view')
+        url_pet_pk = view.kwargs.get('pet_pk')
+        pet = get_object_or_404(Pet, pk=url_pet_pk)
+
+        queryset = Vaccine.objects.filter(
+            name=data.get('name'),
+            application_date=data.get('application_date'),
+            pet=pet,
+        )
+
+        return queryset.count() == 0
