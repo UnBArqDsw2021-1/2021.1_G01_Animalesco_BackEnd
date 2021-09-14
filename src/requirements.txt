@@ -11,3 +11,4 @@ django-heroku==0.3.*
 pycodestyle==2.7.0
 coverage==5.5
 pylint==2.10.2
+pylint-django==2.4.4

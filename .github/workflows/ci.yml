@@ -37,37 +37,37 @@ jobs:
       - name: Check Python version # checking the python version to see if 3.x is installed.
         run: python --version
 
-      - name: Install requirements # install application requirements
-        run: pip install -r src/requirements.txt
+      # - name: Install requirements # install application requirements
+      #   run: pip install -r src/requirements.txt
 
-      - name: ⭐ Análise folha de estilo com pycodestyle
-        run: pycodestyle --statistics src/.
+      # - name: ⭐ Análise folha de estilo com pycodestyle
+      #   run: pycodestyle --statistics src/.
 
-      - name: Run Migrations # run migrations to create table in side car db container
-        run: python src/manage.py migrate
-        env:
-          POSTGRES_DB: postgres
-          POSTGRES_USER: postgres
-          POSTGRES_PORT: 5432
-          POSTGRES_PASSWORD: postgres
+      # - name: Run Migrations # run migrations to create table in side car db container
+      #   run: python src/manage.py migrate
+      #   env:
+      #     POSTGRES_DB: postgres
+      #     POSTGRES_USER: postgres
+      #     POSTGRES_PORT: 5432
+      #     POSTGRES_PASSWORD: postgres
 
-      - name: ⭐⭐ Run Test with django manage.py test # running tests
-        run: python src/manage.py test
-        env:
-          POSTGRES_DB: postgres
-          POSTGRES_USER: postgres
-          POSTGRES_PORT: 5432
-          POSTGRES_PASSWORD: postgres
+      # - name: ⭐⭐ Run Test with django manage.py test # running tests
+      #   run: python src/manage.py test
+      #   env:
+      #     POSTGRES_DB: postgres
+      #     POSTGRES_USER: postgres
+      #     POSTGRES_PORT: 5432
+      #     POSTGRES_PASSWORD: postgres
 
-      - name: ⭐⭐⭐ Python static code analysis with pylint
-        run: pylint --load-plugins pylint_django --django-settings-module=api.settings --fail-under=5 src/**/*.py
+      # - name: ⭐⭐⭐ Python static code analysis with pylint
+      #   run: pylint --load-plugins pylint_django --django-settings-module=config.settings $(git ls-files '*.py')
 
-      - name: ⭐⭐⭐⭐ Análise de cobertura de testes
-        run: |
-          coverage run src/manage.py test api
-          coverage report --fail-under=50
-        env:
-          POSTGRES_DB: postgres
-          POSTGRES_USER: postgres
-          POSTGRES_PORT: 5432
-          POSTGRES_PASSWORD: postgres
+      # - name: ⭐⭐⭐⭐ Análise de cobertura de testes
+      #   run: |
+      #     coverage run src/manage.py test api
+      #     coverage report --fail-under=50
+      #   env:
+      #     POSTGRES_DB: postgres
+      #     POSTGRES_USER: postgres
+      #     POSTGRES_PORT: 5432
+      #     POSTGRES_PASSWORD: postgres
