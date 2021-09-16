@@ -19,7 +19,7 @@ class Specie(models.Model):
 
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
-        return super(User, self).save(*args, **kwargs)
+        return super().save(*args, **kwargs)
 
 
 class Breed(models.Model):
@@ -44,7 +44,7 @@ class Breed(models.Model):
 
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
-        return super(User, self).save(*args, **kwargs)
+        return super().save(*args, **kwargs)
 
 
 class Pet(models.Model):
