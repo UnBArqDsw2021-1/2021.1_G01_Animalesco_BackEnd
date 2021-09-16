@@ -17,6 +17,10 @@ class Specie(models.Model):
     def __str__(self) -> str:
         return self.name
 
+    def save(self, *args, **kwargs):
+        self.name = self.name.lower()
+        return super(User, self).save(*args, **kwargs)
+
 
 class Breed(models.Model):
     name = models.CharField(verbose_name='breed name', max_length=50)
@@ -37,6 +41,10 @@ class Breed(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.name = self.name.lower()
+        return super(User, self).save(*args, **kwargs)
 
 
 class Pet(models.Model):
