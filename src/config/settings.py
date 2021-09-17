@@ -55,8 +55,8 @@ INSTALLED_APPS = [
     # our apps
     'authentication',
     'animals',
+    'vaccines',
     'medicines', 
-    'vaccines'
 ]
 
 # request -> [ midd1 > midd2 > ... > middn ] -> view (controller)

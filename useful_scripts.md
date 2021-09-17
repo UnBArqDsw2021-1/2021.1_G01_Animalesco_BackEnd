@@ -46,7 +46,7 @@ $ python manage.py makemigrations
 #### Entrar no Shell do Django
 ```bash
 # Comando útil para debugar código manualmente
-$ python manage.py makemigrations
+$ python manage.py shell
 ```
 
 #### Rodar os testes

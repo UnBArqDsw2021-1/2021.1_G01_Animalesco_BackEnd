@@ -30,11 +30,8 @@ class Medicine(models.Model):
     pet = models.ForeignKey(
         Pet,
         on_delete=models.CASCADE,
-        related_name="medicine",
+        related_name="medicines",
     )
-
-    class Meta:
-        unique_together = ('name', 'pet',)
 
     def __str__(self) -> str:
         return self.name
