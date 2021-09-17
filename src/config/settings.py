@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     # our apps
     'authentication',
     'animals',
+    'medicines', 
     'vaccines'
 ]
 
