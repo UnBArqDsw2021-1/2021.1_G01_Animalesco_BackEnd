@@ -67,5 +67,6 @@ urlpatterns = [
 
     path('api/v1/', include('authentication.urls')),
     path('api/v1/', include('animals.urls')),
-    path('api/v1/', include('vaccines.urls'))
+    path('api/v1/', include('vaccines.urls')),
+    path('api/v1/', include('medicines.urls'))
 ]
