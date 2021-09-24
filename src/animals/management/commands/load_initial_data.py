@@ -14,7 +14,6 @@ class Command(BaseCommand):
         specie_data  = [
             {
                 "model": "animals.specie",
-                "pk": 1,
                 "fields": {
                     "name": "Cachorro",
                     "proven_veracity": True
@@ -22,7 +21,6 @@ class Command(BaseCommand):
             },
             {
                 "model": "animals.specie",
-                "pk": 2,
                 "fields": {
                     "name": "Gato",
                     "proven_veracity": True
@@ -30,23 +28,22 @@ class Command(BaseCommand):
             },
             {
                 "model": "animals.specie",
-                "pk": 3,
                 "fields": {
                     "name": "Roedor",
                     "proven_veracity": True
                 }
             },
+
             {
                 "model": "animals.specie",
-                "pk": 4,
                 "fields": {
                     "name": "user-strange-specie-1",
                     "proven_veracity": False
                 }
             },
+
             {
                 "model": "animals.specie",
-                "pk": 5,
                 "fields": {
                     "name": "user-strange-specie-2",
                     "proven_veracity": False
@@ -63,118 +60,153 @@ class Command(BaseCommand):
         breed_data = [
             {
                 "model": "animals.breed",
-                "pk": 1,
                 "fields": {
                     "name": "Pastor Alemão",
-                    "specie": 1,
+                    "specie": Specie.objects.get(name="cachorro").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 2,
                 "fields": {
                     "name": "Poodle",
-                    "specie": 1,
+                    "specie": Specie.objects.get(name="cachorro").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 3,
                 "fields": {
                     "name": "Chihuahua",
-                    "specie": 1,
+                    "specie": Specie.objects.get(name="cachorro").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 4,
+                "fields": {
+                    "name": "bulldog inglês",
+                    "specie": Specie.objects.get(name="cachorro").pk,
+                    "proven_veracity": True
+                }
+            },
+            {
+                "model": "animals.breed",
+                "fields": {
+                    "name": "golden retriever",
+                    "specie": Specie.objects.get(name="cachorro").pk,
+                    "proven_veracity": True
+                }
+            },
+            {
+                "model": "animals.breed",
+                "fields": {
+                    "name": "pug",
+                    "specie": Specie.objects.get(name="cachorro").pk,
+                    "proven_veracity": True
+                }
+            },
+            {
+                "model": "animals.breed",
                 "fields": {
                     "name": "Persa",
-                    "specie": 2,
+                    "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 5,
                 "fields": {
                     "name": "Siamês",
-                    "specie": 2,
+                    "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 6,
                 "fields": {
                     "name": "Sphynx",
-                    "specie": 2,
+                    "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 7,
                 "fields": {
                     "name": "Coelho Rex",
-                    "specie": 3,
+                    "specie": Specie.objects.get(name="roedor").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 8,
+                "fields": {
+                    "name": "chinchila",
+                    "specie": Specie.objects.get(name="roedor").pk,
+                    "proven_veracity": True
+                }
+            },
+            {
+                "model": "animals.breed",
+                "fields": {
+                    "name": "porquinho-da-índia",
+                    "specie": Specie.objects.get(name="roedor").pk,
+                    "proven_veracity": True
+                }
+            },
+            {
+                "model": "animals.breed",
+                "fields": {
+                    "name": "hamster",
+                    "specie": Specie.objects.get(name="roedor").pk,
+                    "proven_veracity": True
+                }
+            },
+            {
+                "model": "animals.breed",
                 "fields": {
                     "name": "Teddy",
-                    "specie": 3,
+                    "specie": Specie.objects.get(name="roedor").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 9,
                 "fields": {
                     "name": "Abissínio",
-                    "specie": 3,
+                    "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 10,
                 "fields": {
                     "name": "user-strange-breed-1",
-                    "specie": 4,
+                    "specie": Specie.objects.get(name="user-strange-specie-1").pk,
                     "proven_veracity": False
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 11,
                 "fields": {
                     "name": "user-strange-breed-2",
-                    "specie": 4,
+                    "specie": Specie.objects.get(name="user-strange-specie-1").pk,
                     "proven_veracity": False
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 12,
                 "fields": {
                     "name": "user-strange-breed-3",
-                    "specie": 5,
+                    "specie": Specie.objects.get(name="user-strange-specie-2").pk,
                     "proven_veracity": False
                 }
             },
             {
                 "model": "animals.breed",
-                "pk": 13,
                 "fields": {
                     "name": "user-strange-breed-4",
-                    "specie": 5,
+                    "specie": Specie.objects.get(name="user-strange-specie-2").pk,
                     "proven_veracity": False
                 }
             },
@@ -190,7 +222,6 @@ class Command(BaseCommand):
         user_data = [
             {
                 "model": "auth.user",
-                "pk": 2,
                 "fields": {
                     "password": "UnbFGA123",
                     "is_superuser": False,
@@ -203,7 +234,6 @@ class Command(BaseCommand):
             },
             {
                 "model": "auth.user",
-                "pk": 3,
                 "fields": {
                     "password": "UnbFGA123",
                     "is_superuser": False,
@@ -216,7 +246,6 @@ class Command(BaseCommand):
             },
             {
                 "model": "auth.user",
-                "pk": 4,
                 "fields": {
                     "password": "UnbFGA123",
                     "is_superuser": False,
@@ -229,7 +258,6 @@ class Command(BaseCommand):
             },
             {
                 "model": "auth.user",
-                "pk": 5,
                 "fields": {
                     "password": "UnbFGA123",
                     "is_superuser": False,
@@ -242,7 +270,6 @@ class Command(BaseCommand):
             },
             {
                 "model": "auth.user",
-                "pk": 6,
                 "fields": {
                     "password": "UnbFGA123",
                     "is_superuser": False,
@@ -255,7 +282,6 @@ class Command(BaseCommand):
             },
             {
                 "model": "auth.user",
-                "pk": 7,
                 "fields": {
                     "password": "UnbFGA123",
                     "username": "jojo",
@@ -292,12 +318,11 @@ class Command(BaseCommand):
         pets_data = [
             {
                 "model": "animals.pet",
-                "pk": 1,
                 "fields": {
                     "name": "T-Rex",
                     "sex": "M",
-                    "breed": 1,
-                    "owner": 2,
+                    "breed": Breed.objects.get(name="pastor alemão").pk,
+                    "owner": User.objects.get(username="joão").pk,
                     "birth_date": "2021-09-01",
                     "is_neutered": False,
                     "color": "Preto"
@@ -305,12 +330,23 @@ class Command(BaseCommand):
             },
             {
                 "model": "animals.pet",
-                "pk": 2,
+                "fields": {
+                    "name": "Uncle Bob",
+                    "sex": "M",
+                    "breed": Breed.objects.get(name="user-strange-breed-4").pk,
+                    "owner": User.objects.get(username="joão").pk,
+                    "birth_date": "2020-04-01",
+                    "is_neutered": True,
+                    "color": "Green"
+                }
+            },
+            {
+                "model": "animals.pet",
                 "fields": {
                     "name": "Floquinha",
                     "sex": "F",
-                    "breed": 2,
-                    "owner": 3,
+                    "breed": Breed.objects.get(name="poodle").pk,
+                    "owner": User.objects.get(username="maria").pk,
                     "birth_date": "2021-06-01",
                     "is_neutered": True,
                     "color": "Branco"
@@ -318,12 +354,23 @@ class Command(BaseCommand):
             },
             {
                 "model": "animals.pet",
-                "pk": 3,
+                "fields": {
+                    "name": "Flinstone",
+                    "sex": "M",
+                    "breed": Breed.objects.get(name="abissínio").pk,
+                    "owner": User.objects.get(username="maria").pk,
+                    "birth_date": "2003-02-08",
+                    "is_neutered": True,
+                    "color": "Branco"
+                }
+            },
+            {
+                "model": "animals.pet",
                 "fields": {
                     "name": "Tigrão",
                     "sex": "F",
-                    "breed": 3,
-                    "owner": 4,
+                    "breed": Breed.objects.get(name="chihuahua").pk,
+                    "owner": User.objects.get(username="pedro").pk,
                     "birth_date": "2021-09-09",
                     "is_neutered": False,
                     "color": "caramelo"
@@ -331,12 +378,23 @@ class Command(BaseCommand):
             },
             {
                 "model": "animals.pet",
-                "pk": 4,
+                "fields": {
+                    "name": "Rainbow",
+                    "sex": "F",
+                    "breed": Breed.objects.get(name="teddy").pk,
+                    "owner": User.objects.get(username="pedro").pk,
+                    "birth_date": "2019-03-03",
+                    "is_neutered": False,
+                    "color": "caramelo"
+                }
+            },
+            {
+                "model": "animals.pet",
                 "fields": {
                     "name": "cofen",
                     "sex": "F",
-                    "breed": 7,
-                    "owner": 3,
+                    "breed": Breed.objects.get(name="persa").pk,
+                    "owner": User.objects.get(username="jorge").pk,
                     "birth_date": "2021-06-15",
                     "is_neutered": False,
                     "color": "cinza"
@@ -344,12 +402,11 @@ class Command(BaseCommand):
             },
             {
                 "model": "animals.pet",
-                "pk": 5,
                 "fields": {
                     "name": "mumu",
                     "sex": "M",
-                    "breed": 10,
-                    "owner": 2,
+                    "breed": Breed.objects.get(name="teddy").pk,
+                    "owner": User.objects.get(username="antonio").pk,
                     "birth_date": "2021-06-14",
                     "is_neutered": False,
                     "color": "cinza e branco"
@@ -357,17 +414,16 @@ class Command(BaseCommand):
             },
             {
                 "model": "animals.pet",
-                "pk": 6,
                 "fields": {
                     "name": "garfield",
                     "sex": "M",
-                    "breed": 4,
-                    "owner": 6,
+                    "breed": Breed.objects.get(name="user-strange-breed-1").pk,
+                    "owner": User.objects.get(username="jojo").pk,
                     "birth_date": "2021-07-14",
                     "is_neutered": True,
                     "color": "laranja"
                 }
-            }
+            },
         ]
 
         for data in pets_data:
