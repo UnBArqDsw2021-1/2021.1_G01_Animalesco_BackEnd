@@ -13,6 +13,7 @@ class MedicineAdmin(admin.ModelAdmin):
         "start_date",
         "finish_date",
         "aplication_time",
+        "pet",
     )
     search_fields = ("name",)
 
