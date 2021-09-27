@@ -20,7 +20,7 @@ class SpecieAdmin(admin.ModelAdmin):
 
 @admin.register(Breed)
 class BreedAdmin(admin.ModelAdmin):
-    list_display = ("id", "get_specie_name", "name", "proven_veracity")
+    list_display = ("id", "name", "get_specie_name", "proven_veracity")
     search_fields = ("name",)
     list_filter = ("proven_veracity", "specie__name", )
     actions = [ admin_actions.mark_as_proven_veracity, ]
@@ -46,9 +46,9 @@ class BreedAdmin(admin.ModelAdmin):
 class PetAdmin(admin.ModelAdmin):
     list_display = (
         "id",
-        "get_specie_name",
-        "get_breed_name",
         "name",
+        "get_breed_name",
+        "get_specie_name",
         "sex",
         "birth_date",
         "is_neutered",
