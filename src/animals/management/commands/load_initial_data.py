@@ -133,7 +133,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "coelho Rex",
+                    "name": "coelho rex",
                     "specie": Specie.objects.get(name="roedor").pk,
                     "proven_veracity": True
                 }
