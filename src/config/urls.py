@@ -71,4 +71,5 @@ urlpatterns = [
     path('api/v1/', include('vaccines.urls')),
     path('api/v1/', include('medicines.urls')),
     path('api/v1/', include('vet_visits.urls')),
+    path('api/v1/', include('baths.urls')),
 ]
