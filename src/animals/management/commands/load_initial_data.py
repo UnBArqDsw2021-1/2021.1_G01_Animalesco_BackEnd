@@ -15,21 +15,21 @@ class Command(BaseCommand):
             {
                 "model": "animals.specie",
                 "fields": {
-                    "name": "Cachorro",
+                    "name": "cachorro",
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.specie",
                 "fields": {
-                    "name": "Gato",
+                    "name": "gato",
                     "proven_veracity": True
                 }
             },
             {
                 "model": "animals.specie",
                 "fields": {
-                    "name": "Roedor",
+                    "name": "roedor",
                     "proven_veracity": True
                 }
             },
@@ -61,7 +61,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Pastor Alemão",
+                    "name": "pastor alemão",
                     "specie": Specie.objects.get(name="cachorro").pk,
                     "proven_veracity": True
                 }
@@ -69,7 +69,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Poodle",
+                    "name": "poodle",
                     "specie": Specie.objects.get(name="cachorro").pk,
                     "proven_veracity": True
                 }
@@ -77,7 +77,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Chihuahua",
+                    "name": "chihuahua",
                     "specie": Specie.objects.get(name="cachorro").pk,
                     "proven_veracity": True
                 }
@@ -109,7 +109,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Persa",
+                    "name": "persa",
                     "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
@@ -117,7 +117,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Siamês",
+                    "name": "siamês",
                     "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
@@ -125,7 +125,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Sphynx",
+                    "name": "sphynx",
                     "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
@@ -133,7 +133,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Coelho Rex",
+                    "name": "coelho Rex",
                     "specie": Specie.objects.get(name="roedor").pk,
                     "proven_veracity": True
                 }
@@ -165,7 +165,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Teddy",
+                    "name": "teddy",
                     "specie": Specie.objects.get(name="roedor").pk,
                     "proven_veracity": True
                 }
@@ -173,7 +173,7 @@ class Command(BaseCommand):
             {
                 "model": "animals.breed",
                 "fields": {
-                    "name": "Abissínio",
+                    "name": "abissínio",
                     "specie": Specie.objects.get(name="gato").pk,
                     "proven_veracity": True
                 }
