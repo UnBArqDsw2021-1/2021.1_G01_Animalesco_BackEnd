@@ -2,9 +2,9 @@ from rest_framework import viewsets
 from rest_framework.generics import get_object_or_404
 
 from animals.models import Pet
-from animals.permissions import IsPetOwner
 
 from vet_visits.models import VetVisit
+from vet_visits.permissions import VetVisitPetOwner
 from vet_visits.serializers import VetVisitSerializer
 
 
@@ -13,10 +13,10 @@ class VetVisitViewSet(viewsets.ModelViewSet):
     serializer_class = VetVisitSerializer
     doc_tags = ["Vet visits"]
 
-    permission_classes = [ IsPetOwner ]
+    permission_classes = [ VetVisitPetOwner ]
 
     def get_queryset(self):
-        pet = get_object_or_404(Pet, pk=self.kwargs["pet_pk"]) 
+        pet = get_object_or_404(Pet, pk=self.kwargs["pet_pk"])
         return pet.vet_visits.all()
 
     def perform_create(self, serializer):
