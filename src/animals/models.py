@@ -87,3 +87,7 @@ class Pet(models.Model):
             str:
         """
         return ' | '.join(f'{abrv} for {desc}' for abrv, desc in Pet.SexOptions.choices )
+
+
+    def __str__(self) -> str:
+        return f"({self.pk}) - {self.name} - {self.breed.name}"
