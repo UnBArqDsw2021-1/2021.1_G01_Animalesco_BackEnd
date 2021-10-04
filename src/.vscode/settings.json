@@ -10,5 +10,6 @@
             "password": "postgres",
             "name": "docker-conn"
         }
-    ]
+    ],
+    "python.linting.pylintEnabled": true
 }

@@ -1,6 +1,13 @@
 version: "3.9"
 
 services:
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6379:6379
+    networks:
+      - app-network
 
   db:
     container_name: db
@@ -33,6 +40,53 @@ services:
       - ./.django.env
     networks:
       - app-network
+    depends_on:
+      - db
+
+  worker:
+    # restart: always
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    command:  ["./worker.sh"]
+    volumes:
+      - ./src:/src
+      - pip_cache:/usr/local/lib/python3/site-packages
+    env_file:
+      - ./.postgres.env
+      - ./.django.env
+    networks:
+      - app-network
+    depends_on:
+      - redis
+
+  beat:
+    # restart: always
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    command:  ["./beat.sh"]
+    volumes:
+      - ./src:/src
+      - pip_cache:/usr/local/lib/python3/site-packages
+    env_file:
+      - ./.postgres.env
+      - ./.django.env
+    networks:
+      - app-network
+    depends_on:
+      - redis
+
+  flower:
+    image: mher/flower
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - FLOWER_PORT=8888
+    ports:
+      - 8888:8888
+    networks:
+      - app-network
+
 
   # mailhog:
   #   container_name: mailhog

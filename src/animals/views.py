@@ -26,6 +26,11 @@ class SpecieViewSet(viewsets.ModelViewSet):
         queryset = Specie.objects.exclude(proven_veracity=False)
         return queryset
 
+    def create(self, request, *args, **kwargs):
+        from animals.tasks import test_func
+        test_func.delay()
+        return super().create(request, *args, **kwargs)
+
 class BreedViewSet(viewsets.ModelViewSet):
     queryset = Breed.objects.all()
     serializer_class = BreedSerializer
