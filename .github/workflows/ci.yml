@@ -43,8 +43,11 @@ jobs:
       - name: ⭐ Análise das importações usando o linter `isort`
         run: isort --check-only src/
 
-      - name: ⭐⭐ Análise folha de estilo com `black`
+      - name: ⭐⭐ Análise folha de estilo com o linter `black`
         run: black --check src/
+
+      - name: ⭐⭐⭐ Análise do código com o linter `pylint`
+        run: cd src && pylint --load-plugins pylint_django --django-settings-module=config.settings $(git ls-files '*.py')
 
       # - name: Run Migrations # run migrations to create table in side car db container
       #   run: python src/manage.py migrate

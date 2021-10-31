@@ -29,8 +29,9 @@ class Vaccine(models.Model):
         related_name="vaccines",
     )
 
-    # Para que seja possível realizar um melhor controle gráfico das vacinas, este campo booleano informa se a vacina terá ou não
-    # próxima dose. Em casos de vacinas de dose única ou vacinas que não precisarão ser tomadas novamente.
+    # Para que seja possível realizar um melhor controle gráfico das vacinas, este campo
+    # booleano informa se a vacina terá ou não próxima dose. Em casos de vacinas de
+    # dose única ou vacinas que não precisarão ser tomadas novamente.
     is_finished = models.BooleanField(default=False)
 
     class Meta:

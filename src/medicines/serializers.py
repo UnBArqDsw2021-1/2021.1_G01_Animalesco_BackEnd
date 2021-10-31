@@ -14,18 +14,21 @@ class MedicineSerializer(serializers.ModelSerializer):
             "aplication_time",
         ]
 
-    def validate(self, data):
-        start_date = data.get("start_date", None)
-        finish_date = data.get("finish_date", None)
+    def validate(self, attrs):
+        start_date = attrs.get("start_date", None)
+        finish_date = attrs.get("finish_date", None)
 
         if finish_date and (finish_date <= start_date):
 
             raise serializers.ValidationError(
                 {
                     "finish_date": (
-                        "A data do inicio da medicação não pode ser anterior à data atual ou da data de término."
+                        (
+                            "A data do inicio da medicação não pode ser anterior à "
+                            "data atual ou da data de término."
+                        )
                     )
                 }
             )
 
-        return data
+        return attrs

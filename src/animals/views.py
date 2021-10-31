@@ -108,7 +108,7 @@ def get_all_specie_breeds(request):
     species = Specie.objects.all().prefetch_related("breeds")
     species = species.exclude(proven_veracity=False)
 
-    data = list()
+    data = []
 
     for specie in species:
         breeds = specie.breeds.all()
