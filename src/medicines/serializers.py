@@ -22,10 +22,12 @@ class MedicineSerializer(serializers.ModelSerializer):
 
             raise serializers.ValidationError(
                 {
-                    "finish_date": ((
-                        "A data do inicio da medicação não pode ser anterior à "
-                        "data atual ou da data de término."
-                    ))
+                    "finish_date": (
+                        (
+                            "A data do inicio da medicação não pode ser anterior à "
+                            "data atual ou da data de término."
+                        )
+                    )
                 }
             )
 
