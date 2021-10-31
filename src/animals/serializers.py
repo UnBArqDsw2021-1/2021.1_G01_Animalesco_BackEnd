@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 
-from animals.models import Pet, Breed, Specie
+from animals.models import Breed, Pet, Specie
 
 
 class SpecieSerializer(serializers.ModelSerializer):

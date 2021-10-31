@@ -3,9 +3,9 @@ from rest_framework.generics import get_object_or_404
 
 from animals.models import Pet
 from animals.permissions import IsRelatedPetOwner
-
 from baths.models import Bath
 from baths.serializers import BathSerializer
+
 
 class BathViewSet(viewsets.ModelViewSet):
     queryset = Bath.objects.all()

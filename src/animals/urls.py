@@ -1,14 +1,8 @@
 from django.urls import include, path
-
 from rest_framework_nested import routers
 
-
-from .views import (
-    PetViewSet,
-    SpecieViewSet,
-    BreedViewSet,
-    get_all_specie_breeds,
-)
+from .views import (BreedViewSet, PetViewSet, SpecieViewSet,
+                    get_all_specie_breeds)
 
 app_name = 'pets'
 

@@ -2,9 +2,8 @@ from django.contrib import admin
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
 
-
-from animals.models import Specie, Breed, Pet
 from animals import admin_actions
+from animals.models import Breed, Pet, Specie
 
 
 @admin.register(Specie)

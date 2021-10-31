@@ -3,9 +3,9 @@ from rest_framework.generics import get_object_or_404
 
 from animals.models import Pet
 from animals.permissions import IsPetOwner
-
 from vaccines.models import Vaccine
 from vaccines.serializers import VaccineSerializer
+
 
 class VaccineViewSet(viewsets.ModelViewSet):
     queryset = Vaccine.objects.all()

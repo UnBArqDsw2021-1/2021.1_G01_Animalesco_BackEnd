@@ -1,5 +1,7 @@
 from django.db import models
+
 from animals.models import Pet
+
 
 class Medicine(models.Model):
     name = models.CharField(

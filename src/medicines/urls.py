@@ -1,9 +1,7 @@
 from django.urls import include, path
 
-from medicines.views import MedicineViewSet
 from animals.urls import pets_router
-
-
+from medicines.views import MedicineViewSet
 
 app_name = 'medicines'
 
