@@ -17,4 +17,8 @@ class UserAdmin(BaseUserAdmin):
         "last_login",
         "date_joined",
     )
-    search_fields = ("email", "username", "first_name", )
+    search_fields = (
+        "email",
+        "username",
+        "first_name",
+    )

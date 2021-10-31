@@ -34,7 +34,11 @@ class Vaccine(models.Model):
     is_finished = models.BooleanField(default=False)
 
     class Meta:
-        unique_together = ('name', 'application_date', 'pet',)
+        unique_together = (
+            "name",
+            "application_date",
+            "pet",
+        )
 
     def __str__(self) -> str:
         return self.name

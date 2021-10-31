@@ -31,4 +31,8 @@ class Bath(models.Model):
     )
 
     class Meta:
-        unique_together = ('bath_date', 'next_bath_date', 'pet',)
+        unique_together = (
+            "bath_date",
+            "next_bath_date",
+            "pet",
+        )

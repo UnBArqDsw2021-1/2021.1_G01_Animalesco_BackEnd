@@ -37,4 +37,10 @@ class VetVisit(models.Model):
     )
 
     def __str__(self) -> str:
-        return str(self.pet) + " visited " + self.vet_clinic + " at day " + str(self.visit_date)
+        return (
+            str(self.pet)
+            + " visited "
+            + self.vet_clinic
+            + " at day "
+            + str(self.visit_date)
+        )

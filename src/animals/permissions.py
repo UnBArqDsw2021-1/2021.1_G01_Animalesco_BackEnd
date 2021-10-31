@@ -10,7 +10,9 @@ class IsPetOwner(permissions.BasePermission):
     está tentando interagir.
     """
 
-    message = 'Action rejected! To perform this action, the logged in user must own the Pet.'
+    message = (
+        "Action rejected! To perform this action, the logged in user must own the Pet."
+    )
 
     def has_permission(self, request, view):
         pet = get_object_or_404(Pet, pk=view.kwargs["pet_pk"])
@@ -22,7 +24,9 @@ class IsPetOwner(permissions.BasePermission):
 
 class IsRelatedPetOwner(permissions.BasePermission):
 
-    message = 'Action rejected! To perform this action, the logged in user must own the Pet.'
+    message = (
+        "Action rejected! To perform this action, the logged in user must own the Pet."
+    )
 
     def has_permission(self, request, view):
         pet = get_object_or_404(Pet, pk=view.kwargs["pet_pk"])

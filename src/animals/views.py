@@ -20,6 +20,7 @@ class SpecieViewSet(viewsets.ModelViewSet):
         queryset = Specie.objects.exclude(proven_veracity=False)
         return queryset
 
+
 class BreedViewSet(viewsets.ModelViewSet):
     queryset = Breed.objects.all()
     serializer_class = BreedSerializer
@@ -45,6 +46,7 @@ class BreedViewSet(viewsets.ModelViewSet):
         specie = get_object_or_404(Specie, pk=self.kwargs["specie_pk"])
         serializer.save(specie=specie)
 
+
 class PetViewSet(viewsets.ModelViewSet):
     queryset = Pet.objects.all()
     serializer_class = PetSerializer
@@ -63,7 +65,7 @@ class PetViewSet(viewsets.ModelViewSet):
     method="get",
     operation_summary="Rota usada para consultar todas as Espécies e Raças cadastradas na backend",
 )
-@api_view(['GET',])
+@api_view(["GET"])
 def get_all_specie_breeds(request):
     """
     Controller que irá retornar todas as espécies e raças que o frontend irá
@@ -103,7 +105,7 @@ def get_all_specie_breeds(request):
         }
     ]
     """
-    species = Specie.objects.all().prefetch_related('breeds')
+    species = Specie.objects.all().prefetch_related("breeds")
     species = species.exclude(proven_veracity=False)
 
     data = list()
@@ -121,7 +123,7 @@ def get_all_specie_breeds(request):
                     "breed_pk": breed.pk,
                 }
                 for breed in breeds
-            ]
+            ],
         }
 
         data.append(specie_data)

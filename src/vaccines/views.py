@@ -15,7 +15,7 @@ class VaccineViewSet(viewsets.ModelViewSet):
     # Invés de verificar manualmente a permissão, em cada uma das controlers, criamos
     # uma classe que encapsula uma permissão e deixamos o Django realizar a checagem de
     # quem pode ou não pode acessar o recurso da url
-    permission_classes = [ IsPetOwner ]
+    permission_classes = [IsPetOwner]
 
     def get_queryset(self):
         pet = get_object_or_404(Pet, pk=self.kwargs["pet_pk"])

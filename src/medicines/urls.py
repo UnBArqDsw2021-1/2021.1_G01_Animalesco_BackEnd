@@ -3,12 +3,12 @@ from django.urls import include, path
 from animals.urls import pets_router
 from medicines.views import MedicineViewSet
 
-app_name = 'medicines'
+app_name = "medicines"
 
 pets_router.register(
     r"medicines",
     MedicineViewSet,
-    basename='medicines',
+    basename="medicines",
 )
 
 urlpatterns = [

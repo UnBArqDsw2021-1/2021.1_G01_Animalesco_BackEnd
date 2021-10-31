@@ -20,5 +20,5 @@ class MedicineAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request: HttpRequest) -> QuerySet:
         queryset = super().get_queryset(request)
-        queryset = queryset.prefetch_related('pet')
+        queryset = queryset.prefetch_related("pet")
         return queryset
