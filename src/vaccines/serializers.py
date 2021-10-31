@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from rest_framework.generics import get_object_or_404
 
-from vaccines.models import Vaccine
 from animals.models import Pet
+from vaccines.models import Vaccine
 
 
 class VaccineSerializer(serializers.ModelSerializer):

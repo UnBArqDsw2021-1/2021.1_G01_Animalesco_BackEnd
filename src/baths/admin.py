@@ -2,7 +2,9 @@
 from django.contrib import admin
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
+
 from baths.models import Bath
+
 
 @admin.register(Bath)
 class BathAdmin(admin.ModelAdmin):

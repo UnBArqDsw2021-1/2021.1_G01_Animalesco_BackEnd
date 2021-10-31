@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from rest_framework.generics import get_object_or_404
 
-from baths.models import Bath
 from animals.models import Pet
+from baths.models import Bath
 
 
 class BathSerializer(serializers.ModelSerializer):

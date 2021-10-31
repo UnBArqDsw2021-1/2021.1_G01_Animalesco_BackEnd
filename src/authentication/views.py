@@ -1,6 +1,6 @@
 from djoser import views as djoser_views
-# from djoser.views import UserViewSet as DjoserUserViewSet
 from rest_framework_simplejwt import views as jwt_views
+
 
 class UserViewSet(djoser_views.UserViewSet):
     doc_tags = ["Users"]
