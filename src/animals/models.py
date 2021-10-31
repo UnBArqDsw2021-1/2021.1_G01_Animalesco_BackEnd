@@ -7,7 +7,7 @@ User = get_user_model()
 
 
 class Specie(models.Model):
-    name = models.CharField(verbose_name='specie name', max_length=50, unique=True)
+    name = models.CharField(verbose_name="specie name", max_length=50, unique=True)
 
     # O usuário pode criar novas espécies, mas enquanto a veracidade dessa espécie não
     # for comprovada, não irá aparecer para os demais usuários, somente para o criador.
@@ -22,7 +22,10 @@ class Specie(models.Model):
 
 
 class Breed(models.Model):
-    name = models.CharField(verbose_name='breed name', max_length=50)
+    name = models.CharField(
+        verbose_name="breed name",
+        max_length=50,
+    )
 
     # related_name="breeds" é o nome que será usado para fazer as associações de
     # specie para breed. Por exemplo, usando o ORM do django, para pegar todas as raças de cachorros fariámos algo do tipo:
@@ -36,7 +39,10 @@ class Breed(models.Model):
     # A classe Meta são todas as metainformações da classe Breed
     class Meta:
         # unique_together é uma meta informação que define chaves únicas compostas
-        unique_together = ('name', 'specie',)
+        unique_together = (
+            "name",
+            "specie",
+        )
 
     def __str__(self) -> str:
         return self.name
@@ -47,24 +53,34 @@ class Breed(models.Model):
 
 
 class Pet(models.Model):
-    name = models.CharField(verbose_name='pet name', max_length=100)
+    name = models.CharField(
+        verbose_name="pet name",
+        max_length=100,
+    )
 
     # A classe `SexOptions` é a maneira Django de criar enums
     class SexOptions(models.TextChoices):
-        MALE = 'M', _('Male')
-        FEMALE = 'F', _('Female')
+        MALE = "M", _("Male")
+        FEMALE = "F", _("Female")
 
     # sex é um charfield que possui um enum de opções, sendo MALE o valor padrão
     sex = models.CharField(
         max_length=1,
         choices=SexOptions.choices,
-        default=SexOptions.MALE
+        default=SexOptions.MALE,
     )
 
-    breed = models.ForeignKey(Breed, on_delete=models.PROTECT)
+    breed = models.ForeignKey(
+        Breed,
+        on_delete=models.PROTECT,
+    )
 
     # Se o usuário deletar a conta, nos deletamos os pets cadastrados
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pets')
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="pets",
+    )
 
     birth_date = models.DateField()
 
@@ -85,8 +101,7 @@ class Pet(models.Model):
         Returns:
             str:
         """
-        return ' | '.join(f'{abrv} for {desc}' for abrv, desc in Pet.SexOptions.choices )
-
+        return " | ".join(f"{abrv} for {desc}" for abrv, desc in Pet.SexOptions.choices)
 
     def __str__(self) -> str:
         return f"({self.pk}) - {self.name} - {self.breed.name}"

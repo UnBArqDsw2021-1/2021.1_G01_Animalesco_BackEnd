@@ -18,11 +18,11 @@ class BathAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request: HttpRequest) -> QuerySet:
         queryset = super().get_queryset(request)
-        queryset = queryset.prefetch_related('pet')
+        queryset = queryset.prefetch_related("pet")
         return queryset
 
     def get_pet_name(self, obj: Bath) -> str:
         return obj.pet.name
-        
+
     get_pet_name.short_description = "Pet"
     get_pet_name.admin_order_field = "pet__name"

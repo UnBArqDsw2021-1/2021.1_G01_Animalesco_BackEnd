@@ -13,11 +13,11 @@ class VaccineAdmin(admin.ModelAdmin):
         "application_date",
         "next_application_date",
         "pet",
-        "is_finished"
+        "is_finished",
     )
     search_fields = ("name", "application_dose")
 
     def get_queryset(self, request: HttpRequest) -> QuerySet:
         queryset = super().get_queryset(request)
-        queryset = queryset.prefetch_related('pet')
+        queryset = queryset.prefetch_related("pet")
         return queryset

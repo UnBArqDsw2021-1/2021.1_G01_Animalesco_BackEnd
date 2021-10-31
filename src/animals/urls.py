@@ -1,15 +1,14 @@
 from django.urls import include, path
 from rest_framework_nested import routers
 
-from .views import (BreedViewSet, PetViewSet, SpecieViewSet,
-                    get_all_specie_breeds)
+from .views import BreedViewSet, PetViewSet, SpecieViewSet, get_all_specie_breeds
 
-app_name = 'pets'
+app_name = "pets"
 
 router = routers.DefaultRouter()
 
-router.register(r'pets', PetViewSet)
-router.register(r'species', SpecieViewSet)
+router.register(r"pets", PetViewSet)
+router.register(r"species", SpecieViewSet)
 
 # Aqui é onde criamos rotas nested. Na linha abaixo estamos criando um roteador dentro
 # do contexto de species
@@ -30,7 +29,7 @@ pets_router = routers.NestedDefaultRouter(
 specie_router.register(
     r"breeds",
     BreedViewSet,
-    basename='breeds'
+    basename="breeds",
 )
 
 urlpatterns = [

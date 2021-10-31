@@ -43,8 +43,8 @@ jobs:
       - name: ⭐ Análise das importações usando o linter `isort`
         run: isort --check-only src/
 
-      # - name: ⭐ Análise folha de estilo com pycodestyle
-      #   run: pycodestyle --statistics src/.
+      - name: ⭐⭐ Análise folha de estilo com `black`
+        run: black --check src/
 
       # - name: Run Migrations # run migrations to create table in side car db container
       #   run: python src/manage.py migrate

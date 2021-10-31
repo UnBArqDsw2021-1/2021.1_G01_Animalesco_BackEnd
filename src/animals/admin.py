@@ -14,22 +14,29 @@ class SpecieAdmin(admin.ModelAdmin):
 
     # Ações são funções que podem ser executadas sobre um conjunto de models. As ações
     # são acionadas via os dashboards do django admin
-    actions = [ admin_actions.mark_as_proven_veracity, ]
+    actions = [
+        admin_actions.mark_as_proven_veracity,
+    ]
 
 
 @admin.register(Breed)
 class BreedAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "get_specie_name", "proven_veracity")
     search_fields = ("name",)
-    list_filter = ("proven_veracity", "specie__name", )
-    actions = [ admin_actions.mark_as_proven_veracity, ]
+    list_filter = (
+        "proven_veracity",
+        "specie__name",
+    )
+    actions = [
+        admin_actions.mark_as_proven_veracity,
+    ]
 
     # Usamos a função get_queryset para sobrescrever o comportamento padrão do django
     # para obter dados do banco de dados. Aqui o compotamento sobrescrito é realizar um
     # inner join com a tabela specie durante a obtenção da lista de raças
     def get_queryset(self, request: HttpRequest) -> QuerySet:
         qs = super().get_queryset(request)
-        qs = qs.prefetch_related('specie')
+        qs = qs.prefetch_related("specie")
         return qs
 
     # A tabela Breed possui somente uma chave extrangeira de Specie, dessa forma temos
@@ -53,17 +60,20 @@ class PetAdmin(admin.ModelAdmin):
         "is_neutered",
         "color",
     )
-    search_fields = ("name", )
-    list_filter = ("breed", "breed__specie__name", "sex", )
-
+    search_fields = ("name",)
+    list_filter = (
+        "breed",
+        "breed__specie__name",
+        "sex",
+    )
 
     # Usamos a função get_queryset para sobrescrever o comportamento padrão do django
     # para obter dados do banco de dados. Aqui o compotamento sobrescrito é realizar um
     # inner join com a tabela breed e specie durante a obtenção da lista de raças
     def get_queryset(self, request: HttpRequest) -> QuerySet:
         qs = super().get_queryset(request)
-        qs = qs.prefetch_related('breed')
-        qs = qs.prefetch_related('breed__specie')
+        qs = qs.prefetch_related("breed")
+        qs = qs.prefetch_related("breed__specie")
         return qs
 
     def get_specie_name(self, obj: Pet) -> str:
@@ -71,7 +81,6 @@ class PetAdmin(admin.ModelAdmin):
 
     get_specie_name.short_description = "Specie name"
     get_specie_name.admin_order_field = "breed__specie__name"
-
 
     def get_breed_name(self, obj: Pet) -> str:
         return obj.breed.name

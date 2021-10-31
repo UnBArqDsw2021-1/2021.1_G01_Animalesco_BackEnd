@@ -12,7 +12,7 @@ class BathViewSet(viewsets.ModelViewSet):
     serializer_class = BathSerializer
     doc_tags = ["baths"]
 
-    permission_classes = [ IsRelatedPetOwner ]
+    permission_classes = [IsRelatedPetOwner]
 
     def get_queryset(self):
         pet = get_object_or_404(Pet, pk=self.kwargs["pet_pk"])

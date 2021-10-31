@@ -12,7 +12,7 @@ class MedicineViewSet(viewsets.ModelViewSet):
     serializer_class = MedicineSerializer
     doc_tags = ["Medicines"]
 
-    permission_classes = [ IsPetOwner ]
+    permission_classes = [IsPetOwner]
 
     def get_queryset(self):
         pet = get_object_or_404(Pet, pk=self.kwargs["pet_pk"])

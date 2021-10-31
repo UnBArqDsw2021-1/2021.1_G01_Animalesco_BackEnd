@@ -6,47 +6,30 @@ from animals.models import Breed, Pet, Specie
 
 
 class Command(BaseCommand):
-    help = 'Registra os dados iniciais da aplicação no banco de dados'
+    help = "Registra os dados iniciais da aplicação no banco de dados"
 
     def handle(self, *args, **options):
 
-        specie_data  = [
+        specie_data = [
             {
                 "model": "animals.specie",
-                "fields": {
-                    "name": "cachorro",
-                    "proven_veracity": True
-                }
+                "fields": {"name": "cachorro", "proven_veracity": True},
             },
             {
                 "model": "animals.specie",
-                "fields": {
-                    "name": "gato",
-                    "proven_veracity": True
-                }
+                "fields": {"name": "gato", "proven_veracity": True},
             },
             {
                 "model": "animals.specie",
-                "fields": {
-                    "name": "roedor",
-                    "proven_veracity": True
-                }
+                "fields": {"name": "roedor", "proven_veracity": True},
             },
-
             {
                 "model": "animals.specie",
-                "fields": {
-                    "name": "user-strange-specie-1",
-                    "proven_veracity": False
-                }
+                "fields": {"name": "user-strange-specie-1", "proven_veracity": False},
             },
-
             {
                 "model": "animals.specie",
-                "fields": {
-                    "name": "user-strange-specie-2",
-                    "proven_veracity": False
-                }
+                "fields": {"name": "user-strange-specie-2", "proven_veracity": False},
             },
         ]
 
@@ -62,152 +45,152 @@ class Command(BaseCommand):
                 "fields": {
                     "name": "pastor alemão",
                     "specie": Specie.objects.get(name="cachorro").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "poodle",
                     "specie": Specie.objects.get(name="cachorro").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "chihuahua",
                     "specie": Specie.objects.get(name="cachorro").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "bulldog inglês",
                     "specie": Specie.objects.get(name="cachorro").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "golden retriever",
                     "specie": Specie.objects.get(name="cachorro").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "pug",
                     "specie": Specie.objects.get(name="cachorro").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "persa",
                     "specie": Specie.objects.get(name="gato").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "siamês",
                     "specie": Specie.objects.get(name="gato").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "sphynx",
                     "specie": Specie.objects.get(name="gato").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "coelho rex",
                     "specie": Specie.objects.get(name="roedor").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "chinchila",
                     "specie": Specie.objects.get(name="roedor").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "porquinho-da-índia",
                     "specie": Specie.objects.get(name="roedor").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "hamster",
                     "specie": Specie.objects.get(name="roedor").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "teddy",
                     "specie": Specie.objects.get(name="roedor").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "abissínio",
                     "specie": Specie.objects.get(name="gato").pk,
-                    "proven_veracity": True
-                }
+                    "proven_veracity": True,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "user-strange-breed-1",
                     "specie": Specie.objects.get(name="user-strange-specie-1").pk,
-                    "proven_veracity": False
-                }
+                    "proven_veracity": False,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "user-strange-breed-2",
                     "specie": Specie.objects.get(name="user-strange-specie-1").pk,
-                    "proven_veracity": False
-                }
+                    "proven_veracity": False,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "user-strange-breed-3",
                     "specie": Specie.objects.get(name="user-strange-specie-2").pk,
-                    "proven_veracity": False
-                }
+                    "proven_veracity": False,
+                },
             },
             {
                 "model": "animals.breed",
                 "fields": {
                     "name": "user-strange-breed-4",
                     "specie": Specie.objects.get(name="user-strange-specie-2").pk,
-                    "proven_veracity": False
-                }
+                    "proven_veracity": False,
+                },
             },
         ]
 
@@ -229,7 +212,7 @@ class Command(BaseCommand):
                     "last_name": "",
                     "email": "joao@gmail.com",
                     "is_staff": False,
-                }
+                },
             },
             {
                 "model": "auth.user",
@@ -241,7 +224,7 @@ class Command(BaseCommand):
                     "last_name": "",
                     "email": "maria@gmail.com",
                     "is_staff": False,
-                }
+                },
             },
             {
                 "model": "auth.user",
@@ -253,7 +236,7 @@ class Command(BaseCommand):
                     "last_name": "",
                     "email": "pedro@gmail.com",
                     "is_staff": False,
-                }
+                },
             },
             {
                 "model": "auth.user",
@@ -265,7 +248,7 @@ class Command(BaseCommand):
                     "last_name": "",
                     "email": "jorge@gmail.com",
                     "is_staff": False,
-                }
+                },
             },
             {
                 "model": "auth.user",
@@ -277,7 +260,7 @@ class Command(BaseCommand):
                     "last_name": "",
                     "email": "antonio@gmail.com",
                     "is_staff": False,
-                }
+                },
             },
             {
                 "model": "auth.user",
@@ -288,7 +271,7 @@ class Command(BaseCommand):
                     "last_name": "",
                     "email": "jojo@gmai.com",
                     "is_staff": False,
-                }
+                },
             },
         ]
 
@@ -296,9 +279,9 @@ class Command(BaseCommand):
 
         try:
             User.objects.create_superuser(
-                username='admin',
-                email='admin@admin.com',
-                password='admin',
+                username="admin",
+                email="admin@admin.com",
+                password="admin",
             )
         except IntegrityError as err:
             pass
@@ -324,8 +307,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="joão").pk,
                     "birth_date": "2021-09-01",
                     "is_neutered": False,
-                    "color": "Preto"
-                }
+                    "color": "Preto",
+                },
             },
             {
                 "model": "animals.pet",
@@ -336,8 +319,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="joão").pk,
                     "birth_date": "2020-04-01",
                     "is_neutered": True,
-                    "color": "Green"
-                }
+                    "color": "Green",
+                },
             },
             {
                 "model": "animals.pet",
@@ -348,8 +331,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="maria").pk,
                     "birth_date": "2021-06-01",
                     "is_neutered": True,
-                    "color": "Branco"
-                }
+                    "color": "Branco",
+                },
             },
             {
                 "model": "animals.pet",
@@ -360,8 +343,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="maria").pk,
                     "birth_date": "2003-02-08",
                     "is_neutered": True,
-                    "color": "Branco"
-                }
+                    "color": "Branco",
+                },
             },
             {
                 "model": "animals.pet",
@@ -372,8 +355,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="pedro").pk,
                     "birth_date": "2021-09-09",
                     "is_neutered": False,
-                    "color": "caramelo"
-                }
+                    "color": "caramelo",
+                },
             },
             {
                 "model": "animals.pet",
@@ -384,8 +367,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="pedro").pk,
                     "birth_date": "2019-03-03",
                     "is_neutered": False,
-                    "color": "caramelo"
-                }
+                    "color": "caramelo",
+                },
             },
             {
                 "model": "animals.pet",
@@ -396,8 +379,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="jorge").pk,
                     "birth_date": "2021-06-15",
                     "is_neutered": False,
-                    "color": "cinza"
-                }
+                    "color": "cinza",
+                },
             },
             {
                 "model": "animals.pet",
@@ -408,8 +391,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="antonio").pk,
                     "birth_date": "2021-06-14",
                     "is_neutered": False,
-                    "color": "cinza e branco"
-                }
+                    "color": "cinza e branco",
+                },
             },
             {
                 "model": "animals.pet",
@@ -420,8 +403,8 @@ class Command(BaseCommand):
                     "owner": User.objects.get(username="jojo").pk,
                     "birth_date": "2021-07-14",
                     "is_neutered": True,
-                    "color": "laranja"
-                }
+                    "color": "laranja",
+                },
             },
         ]
 
@@ -436,4 +419,6 @@ class Command(BaseCommand):
                 color=data.get("fields").get("color"),
             )
 
-        self.stdout.write(self.style.SUCCESS('The database was successfully populated!'))
+        self.stdout.write(
+            self.style.SUCCESS("The database was successfully populated!")
+        )
