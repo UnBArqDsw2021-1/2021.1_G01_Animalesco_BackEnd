@@ -6,7 +6,7 @@ from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
-schema_view = get_schema_view(
+SchemaView = get_schema_view(
     openapi.Info(
         title="Animalesco API",
         default_version="v1",
@@ -32,17 +32,17 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     re_path(
         r"^api/v1/docs/$",
-        schema_view.with_ui("swagger", cache_timeout=0),
+        SchemaView.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
     re_path(
         r"^api/v1/docs/swagger/$",
-        schema_view.with_ui("swagger", cache_timeout=0),
+        SchemaView.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
     re_path(
         r"^api/v1/docs/redoc/$",
-        schema_view.with_ui("redoc", cache_timeout=0),
+        SchemaView.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
     path("api/v1/", include("authentication.urls")),

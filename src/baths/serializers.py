@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-from animals.models import Pet
 from baths.models import Bath
 
 
@@ -14,9 +13,9 @@ class BathSerializer(serializers.ModelSerializer):
             "location_bath",
         ]
 
-    def validate(self, data):
-        bath_date = data.get("bath_date", None)
-        next_bath_date = data.get("next_bath_date", None)
+    def validate(self, attrs):
+        bath_date = attrs.get("bath_date", None)
+        next_bath_date = attrs.get("next_bath_date", None)
 
         if next_bath_date <= bath_date:
 
@@ -28,4 +27,4 @@ class BathSerializer(serializers.ModelSerializer):
                 }
             )
 
-        return data
+        return attrs

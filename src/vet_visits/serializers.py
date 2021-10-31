@@ -8,9 +8,9 @@ class VetVisitSerializer(serializers.ModelSerializer):
         model = VetVisit
         fields = ["id", "vet_clinic", "description", "visit_date", "next_visit_date"]
 
-    def validate(self, data):
-        visit_date = data.get("visit_date", None)
-        next_visit_date = data.get("next_visit_date", None)
+    def validate(self, attrs):
+        visit_date = attrs.get("visit_date", None)
+        next_visit_date = attrs.get("next_visit_date", None)
 
         if next_visit_date and (next_visit_date <= visit_date):
             raise serializers.ValidationError(
@@ -22,4 +22,4 @@ class VetVisitSerializer(serializers.ModelSerializer):
                 }
             )
 
-        return data
+        return attrs

@@ -43,7 +43,7 @@ class VaccineSerializer(serializers.ModelSerializer):
                 }
             )
 
-        if self.unique_together_validation(data) == False:
+        if self.unique_together_validation(data) is False:
             raise serializers.ValidationError(
                 {
                     "unique_together_validation": (

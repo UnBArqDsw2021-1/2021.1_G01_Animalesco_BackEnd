@@ -28,7 +28,8 @@ class Breed(models.Model):
     )
 
     # related_name="breeds" é o nome que será usado para fazer as associações de
-    # specie para breed. Por exemplo, usando o ORM do django, para pegar todas as raças de cachorros fariámos algo do tipo:
+    # specie para breed. Por exemplo, usando o ORM do django, para pegar todas as raças
+    # de cachorros fariámos algo do tipo:
     # > Specie.objects.get(name="Cachorro").breeds.all()
     specie = models.ForeignKey(Specie, on_delete=models.PROTECT, related_name="breeds")
 
@@ -92,7 +93,8 @@ class Pet(models.Model):
     # picture = models.ImageField(upload_to='animals_pictures/', null=True, blank=True)
 
     # Método estático possui essa sintaxe
-    # Ps.: Métodos estáticos são métodos que não dependem de instâncias, podem ser chamados diretamente da classe
+    # Ps.: Métodos estáticos são métodos que não dependem de instâncias, podem ser
+    # chamados diretamente da classe
     @staticmethod
     def get_valid_sex_options() -> str:
         """
